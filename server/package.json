@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prisma:dev:deploy": "npx prisma migrate deploy",
+    "dev:db:rm": "docker compose rm dev-db -s -f -v",
+    "dev:db:up": "docker compose up dev-db -d",
+    "dev:db:reset": "npm run dev:db:rm && npm run dev:db:up && delay 2 && echo Done && npm run prisma:dev:deploy",
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.0.0",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "prisma": "^4.0.0"
+  }
+}
