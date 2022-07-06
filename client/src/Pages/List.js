@@ -15,7 +15,11 @@ const List = () => {
         return {
           name: itm.name,
           CIN: itm.cin,
-          AddedAt: itm.AddedAt,
+          AddedAt:
+            itm.AddedAt.split("T")[0] +
+            " ( " +
+            itm.AddedAt.split("T")[1].split(".")[0] +
+            " )",
         };
       });
       setData(arr);
